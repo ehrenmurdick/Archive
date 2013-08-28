@@ -1,5 +1,0 @@
-when stage:liquidfuel < 3123 then
-  run booster.
-
-when stage:liquidfuel < 1 then
-  run stage.
