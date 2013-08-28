@@ -1,0 +1,35 @@
+lock throttle to 1.
+lock steering to up + R(0,0,180).
+
+lock x to altitude.
+lock y to 1 / 1000 * x.
+lock d to y * -1.
+
+stage.
+
+wait until altitude > 5000.
+
+lock steering to up + R(0,d,180).
+
+
+wait until apoapsis > 75000.
+lock throttle to 0.
+
+lock steering to prograde.
+
+wait until eta:apoapsis < 20.
+
+lock throttle to 1.
+
+wait until periapsis > 71000.
+
+
+
+
+
+
+
+
+
+
+

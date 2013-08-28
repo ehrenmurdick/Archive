@@ -1,0 +1,22 @@
+lock steering to up + R(0,0,180).
+
+when altitude > 5000 then
+lock steering to up + R(0,-30,180).
+
+when altitude > 12000 then
+lock steering to up + R(0,-45,180).
+
+when altitude > 20000 then
+lock steering to up + R(0,-70,180).
+
+when altitude > 50000 then
+lock steering to up + R(0,-90,180).
+
+when apoapsis > 75000 then
+print "apo".
+
+wait until abort.
+
+
+
+

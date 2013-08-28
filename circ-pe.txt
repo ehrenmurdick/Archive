@@ -1,0 +1,26 @@
+sas off.
+lock throttle to 0.
+lock steering to retrograde.
+wait until eta:periapsis < 10.
+print "t+"+missiontime+" burning to circularize".
+lock throttle to 1.
+
+set tgt to periapsis * 2.
+set fine to tgt * 1.1.
+
+when apoapsis + periapsis < fine then
+  lock throttle to 0.2.
+
+until apoapsis + periapsis < tgt {
+  set err to 0 - verticalspeed.
+  set correction to err * 0.3.
+
+  lock steering to retrograde + r(0,correction,0).
+}.
+
+sas on.
+
+
+
+
+

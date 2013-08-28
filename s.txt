@@ -1,0 +1,16 @@
+print "stage program".
+stage.
+wait 1.
+stage.
+
+
+
+
+
+
+
+
+
+
+
+

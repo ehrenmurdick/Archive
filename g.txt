@@ -1,0 +1,26 @@
+set t to 120733.
+
+if periapsis < t {
+
+lock steering to prograde + r(0,90,0).
+ag9 off.
+print "press 9 for burn".
+wait until ag9.
+lock throttle to 0.01.
+wait until periapsis > t.
+lock throttle to 0.
+}.
+
+if periapsis > t {
+
+lock steering to prograde + r(0,-90,0).
+ag9 off.
+print "press 9 for burn".
+wait until ag9.
+lock throttle to 0.01.
+wait until periapsis < t.
+lock throttle to 0.
+}.
+
+
+

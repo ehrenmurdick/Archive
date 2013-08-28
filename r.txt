@@ -1,0 +1,21 @@
+
+set x to 0.
+abort off.
+on abort reboot.
+
+until altitude > 35000 {
+set s to altitude - 5000.
+set x to s * 0.003.
+set x to 0 - x.
+
+if x > 0 { set x to 0. }.
+
+lock steering to up + r(0,x,180).
+clearscreen.
+print x.
+
+}.
+
+lock steering to up + r(0,-90,180).
+
+

@@ -1,0 +1,36 @@
+sas off.
+lock steering to node.
+
+set tol to 0.2.
+
+set twr to maxthrust / mass.
+
+set burntime to mag:node / twr.
+
+set leadtime to burntime / 2.
+
+print "burn:"+burntime.
+wait until eta:node < leadtime.
+
+lock throttle to 1.
+
+wait until mag:node < 30.
+lock throttle to 0.5.
+
+wait until mag:node < 10.
+lock throttle to 0.1.
+
+
+wait until mag:node < tol.
+
+
+
+
+
+
+
+
+
+
+
+

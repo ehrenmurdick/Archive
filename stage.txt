@@ -1,0 +1,5 @@
+print "t+"+missiontime+" stage".
+
+stage.
+wait 1.
+stage.

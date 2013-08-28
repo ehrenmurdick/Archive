@@ -1,0 +1,40 @@
+wait until altitude > 150.
+
+set x to 1.
+set tar to 0.
+set prev to 0.
+set err to 0.
+
+set kp to 0.1.
+set ki to 0.01.
+set kd to 0.
+
+on ag4 set tar to -1.
+on ag5 set tar to 1.
+on ag6 set tar to 1.
+
+
+until 0 {
+
+set err to tar - verticalspeed.
+set int to int + err.
+set der to err - prev.
+
+set x to err*kp + int*ki + der*kd.
+set prev to err.
+
+if x > 1 { set x to 1. }.
+if x < 0 { set x to 0. }.
+
+clearscreen.
+print err.
+print int.
+print der.
+print x.
+
+lock throttle to x.
+
+}.
+
+
+
