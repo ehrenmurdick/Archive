@@ -18,7 +18,14 @@ print "t-2 ignition".
 stage.
 lock throttle to 0.1.
 lock steering to up + r(0,0,180).
-wait 1.
+wait 0.5.
+
+print "t-1.5 load staging plan".
+when stage:liquidfuel < 4100 then
+  run booster.
+when stage:liquidfuel < 1 then
+  run stage.
+wait 0.5.
 
 print "t-1 throttle up".
 set x to 1.
@@ -32,14 +39,9 @@ lock throttle to 1.
 stage.
 print "t+0 launch clamps unlocked".
 
-print "t+0.5 load staging plan".
-when stage:liquidfuel < 4100 then
-  run booster.
-when stage:liquidfuel < 1 then
-  run stage.
 
 
-when altitude > 150 then 
+when altitude > 150 then
   print "t+"+missiontime+" tower clear".
 
 set slope to turnfinish - turnstart.

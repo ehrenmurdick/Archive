@@ -1,0 +1,89 @@
+abort off.
+
+set x to 1.
+set tar to 3.
+set prev to 0.
+set err to 0.
+set int to 0.
+set der to 0.
+
+set xerr to 0.
+set xtar to latitude.
+set xint to 0.
+
+set xkp to 2000.
+set xki to 0.
+set xcorr to 3.
+
+set yerr to 0.
+set ytar to latitude.
+set yint to 0.
+
+set ykp to 2000.
+set yki to 0.
+set ycorr to 3.
+
+
+set kp to 0.1.
+set ki to 0.01.
+set kd to 0.
+
+on ag4 set tar to -1.
+on ag5 set tar to 1.
+on ag6 set tar to 1.
+
+sas off.
+lock steering to up + r(0,0,180).
+
+set t to missiontime.
+
+when missiontime - t > 40 then
+  set tar to 0.
+when missiontime - t > 45 then
+  set tar to -2.
+
+until abort {
+
+set err to tar - verticalspeed.
+set int to int + err.
+set der to err - prev.
+
+set x to err*kp + int*ki + der*kd.
+set prev to err.
+
+if x > 1 { set x to 1. }.
+if x < 0 { set x to 0. }.
+
+clearscreen.
+
+lock throttle to x.
+print x.
+
+
+set xerr to latitude - xtar.
+set xx to xerr*xkp.
+
+set xx to xx * xcorr.
+
+if xx > 1 { set xx to 1. }.
+if xx < -1 { set xx to -1. }.
+
+set yerr to longitude - ytar.
+set yx to yerr*ykp.
+
+set yx to yx * ycorr.
+
+if yx > 1 { set yx to 1. }.
+if yx < -1 { set yx to -1. }.
+
+
+
+lock steering to up + r(xx,0,180).
+
+print xx.
+print xerr.
+
+}.
+
+
+

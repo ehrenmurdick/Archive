@@ -1,7 +1,5 @@
-wait until altitude > 150.
-
 set x to 1.
-set tar to 0.
+set tar to 3.
 set prev to 0.
 set err to 0.
 
@@ -12,6 +10,16 @@ set kd to 0.
 on ag4 set tar to -1.
 on ag5 set tar to 1.
 on ag6 set tar to 1.
+
+sas off.
+lock steering to up + r(0,0,180).
+
+stage.
+
+when missiontime > 10 then
+  set tar to 0.
+when missiontime > 20 then
+  set tar to -1.
 
 
 until 0 {
